@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- force IE browsers in compatibility mode to use their most aggressive rendering engine -->
+
+    <meta charset="utf-8">
+    <title>Predix Showcase Applications Status Status</title>
+    <meta name="description" content="Welcome to Predix Showcase Applications Status&#39;s home for real-time and historical data on system performance.">
+
+    <!-- Mobile viewport optimization h5bp.com/ad -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+    <meta http-equiv="cleartype" content="on">
+
+
+
+    <link rel="shortcut icon" href='assets/pages/status/favicon-green.png'>
+
+
+    <meta name="globalsign-domain-verification" content="jMsfkTQm-DYLtrX0PQ4Vp1chE1FCqtqCX_Ea1lNK6E"/>
+
+
+   
+     <link href="css/master.css" media="all" rel="stylesheet" />
+    <link href="css/app.css" media="all" rel="stylesheet" />
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+
+  
+
+    <!-- custom css -->
+
+
+    <!-- Le HTML5 shim -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- injection for static -->
+
+    
+  </head>
+
+
+  <body class="status index status-none">
+
+
+
+
+  <div class="layout-content status status-index starter" >
+      <div class="masthead-container basic">
+
+    <div class="masthead no-logo">
+        <h3>
+            Predix Showcase Applications Status
+        </h3>
+      <div class="clearfix"></div>
+    </div>
+
+</div> <!-- this is outside of the .container so that the cover photo can go full width on mobile -->
+
+
+    <div class="container" ng-controller='AppCtrl'>
+        <div class="page-status" ng-class="{'status-none': (overallStatus=='All Applications Operational'),'status-minor': (overallStatus=='All Applications Outage' || overallStatus=='Application Partial Outage') }">
+          <span class="status font-large">
+            {{overallStatus}}
+          </span>
+          <span class="last-updated-stamp  font-small"></span>
+        </div>
+
+
+
+    <div class="components-section font-regular">
+      <div class="components-container one-column" ng-repeat="region in monitors" >
+          <!-- top level group -->
+          <div class="component-container border-color is-group" >
+                <div class="component-inner-container" ng-class="{'status-green': (region.status=='Operational'),'status-orange': (region.status=='Partial Outage' || region.status=='Outage') }"  ng-click="toggleGroup(region.name)">
+                  <span class="name">
+                    <span class="fa group-parent-indicator color-secondary font-small" ng-class="{'fa-minus-square-o': (region.show), 'fa-plus-square-o': !(region.show)}"></span>
+                    <span>
+                          {{region.name}} 
+                    </span>
+                  </span>  
+                  <span class="component-status" tooltip="Groups take on the status of their applications. Click to see the status of the individual app.">
+                        {{region.status}}
+                  </span>
+                </div>
+
+                <!-- children components -->
+                <div class="child-components-container is-group" ng-repeat="app in region.applications" ng-show=(region.show) >
+                    
+                    <div class="component-inner-container color-secondary" ng-class="{'status-green': (app.status=='Operational'),'status-orange': (app.status=='Partial Outage' || app.status=='Outage') }" ng-click="toggleApp(app)">
+                        
+                        <span class="fa group-parent-indicator font-small" ng-class="{'fa-minus-square-o': (app.show), 'fa-plus-square-o': !(app.show)}"></span>
+                            <span class="name">
+                              {{app.name}}
+                              <span class="tooltiptext">
+                                  <a href="{{app.uri}}" target="_blank">Go to app</a>
+                              </span>
+                            </span>
+                        </span>
+                        <span class="component-status">
+                          {{app.status}}
+                        </span>
+                        <span class="icon-indicator fa fa-check"></span>
+                    </div>
+                    
+
+                    <!-- children components -->
+                   <div class="child-components-container" ng-repeat="module in app.modules" ng-show=(app.show) >
+                    <div class="component-inner-container color-secondary" ng-class="{'status-green': (module.status=='Operational'),'status-orange': (module.status=='Partial Outage' || module.status=='Outage') }">
+                        <span class="name">
+                            {{module.name}}
+                            <span class="tooltiptext">
+                                  <a href="{{module.endpoint}}" target="_blank">health check</a>
+                              </span>
+                        </span>
+                        <span class="component-status">
+                          {{module.status}} 
+                          <span class="tooltiptext">{{module.lastcheck}}</span>
+                        </span>
+                        <span class="icon-indicator fa fa-check"></span>
+                    </div>
+                </div>
+
+
+                </div>
+
+          </div>
+      </div>
+    </div>
+
+      <div class="page-footer border-color font-small">
+
+        <span class="color-secondary powered-by">© 2016 General Electric</span>
+      </div>
+    </div>
+
+    
+
+  </div>
+
+
+
+    
+
+
+
+
+
+  </body>
+</html>

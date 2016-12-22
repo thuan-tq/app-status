@@ -1,0 +1,110 @@
+[{
+		"name": "US-WEST",
+		"status": "Operational",
+		"applications": [{
+				"name": "WFM",
+				"status": "Operational",
+				"uri": "https://predix-wfm-ui-das-wfmprod.run.aws-usw02-pr.ice.predix.io",
+				"modules": [{
+					"name": "wfm-incident-detector",
+					"endpoint": "https://predix-wfm-incident-detector-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				}, 
+				{
+					"name": "wfm-turbine-datasimulator",
+					"endpoint": "https://predix-wfm-turbine-datasimulator-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-timeseries-handler",
+					"endpoint": "https://predix-wfm-timeseries-handler-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-incidents-handler",
+					"endpoint": "https://predix-wfm-incidents-handler-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-db-handler",
+					"endpoint": "https://predix-wfm-db-handler-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-gateway",
+					"endpoint": "https://predix-wfm-gateway-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-timeseries-forwarder",
+					"endpoint": "https://predix-wfm-timeseries-forwarder-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				}]
+			},
+			{
+				"name": "Intelipump",
+				"status": "Operational",
+				"uri": "https://intelipump-ui-das-prod.run.aws-usw02-pr.ice.predix.io",
+				"modules": [{
+					"name": "intelipump-backend-api",
+					"endpoint": "https://intelipump-backend-api-das-prod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				}]
+			}	
+		]
+},
+{
+		"name": "US-EAST",
+		"status": "Operational",
+		"applications": [{
+				"name": "WFM",
+				"status": "Operational",
+				"uri":"https://predix-wfm-ui-ddl-wfmprod.run.asv-pr.ice.predix.io",
+				"modules": [{
+					"name": "wfm-incident-detector",
+					"endpoint": "https://predix-wfm-incident-detector-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				}, 
+				{
+					"name": "wfm-turbine-datasimulator",
+					"endpoint": "https://predix-wfm-turbine-datasimulator-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-timeseries-handler",
+					"endpoint": "https://predix-wfm-timeseries-handler-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-incidents-handler",
+					"endpoint": "https://predix-wfm-incidents-handler-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-db-handler",
+					"endpoint": "https://predix-wfm-db-handler-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-gateway",
+					"endpoint": "https://predix-wfm-gateway-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "wfm-timeseries-forwarder",
+					"endpoint": "https://predix-wfm-timeseries-forwarder-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				}]
+			},
+			{
+				"name": "Intelipump",
+				"status": "Operational",
+				"uri": "https://intel-ddl-prod.run.asv-pr-pub.ice.predix.io",
+				"modules": [{
+					"name": "intelipump-backend-api",
+					"endpoint": "https://intelipump-backend-api-ddl-intelprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				}]
+			}	
+		]
+}]
