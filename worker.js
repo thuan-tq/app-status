@@ -2,17 +2,17 @@ var io = require('socket.io-client');
 var _log = require('./lib/logger');
 var _healthCheck = require('./lib/healthcheck')();
 
-//TODO  temporary hardcode
-var socket = io.connect("http://127.0.0.1:3000");
+var port = process.argv[2];
+var interval = process.argv[3]
+var socket = io.connect("http://localhost:" + port);
+socket.emit('send:system', "connected");
 
 
 var doHealthCheck = function() {
 	var monitorscfg = require('./config/monitor_cfg')
 	monitorscfg.forEach(function(region) {
-		//_log.ok('Checking for region: ' + region.name);
 		region.applications.forEach(function(app) {
 				app.modules.forEach(function(module) {
-						//_log.ok('Checking for endpoint: ' + module.endpoint);
 					   _healthCheck.healthcheck(module.endpoint).then(
 							function(res) {
 								data = {regionName: region.name, appName: app.name, moduleName: module.name, status: res}
@@ -27,5 +27,11 @@ var doHealthCheck = function() {
 				})
 		});
 	});
+	socket.emit('send:system', "end healthcheck");
 }
-setInterval(doHealthCheck, 30000);
+
+//Do health heck after start
+doHealthCheck();
+
+//Periodically do health check
+setInterval(doHealthCheck, interval);

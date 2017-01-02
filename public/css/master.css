@@ -7318,6 +7318,7 @@ only screen and (min-resolution: 192dpi) {
     white-space: nowrap;
     text-overflow: ellipsis;
     /*display: inline-block;*/
+    color:black;
     font-weight: 500;
     max-width: 75%
 }

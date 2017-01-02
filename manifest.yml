@@ -1,8 +1,10 @@
 ---
 applications:
-  - name: showcase-apps-status
+  - name: ddl-apps-status
     memory: 512MB
     buildpack: https://github.com/cloudfoundry/buildpack-nodejs.git
-    command: node app.js
+    command: node app.js 
     path: .
+    env:
+       HEALTHCHECK_INTERVAL: 30000
 

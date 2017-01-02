@@ -1,4 +1,6 @@
 
+var _log = require('../lib/logger');
+
 // export function for listening to the socket
 module.exports = function (socket) {
 
@@ -6,13 +8,16 @@ module.exports = function (socket) {
   var overallStatus = "All Applications Operational";
   // broadcast a user's message to other users
   socket.on('send:message', function (data) {
-
     module = updateStatus(data);
     if (module) {
         data.status = module.status;
         data.lastcheck = module.lastcheck
         socket.broadcast.emit('send:message', data);
     }
+  });
+
+   socket.on('send:system', function (data) {
+        //socket.broadcast.emit('send:system', data);
   });
 
   var updateRegionStatus = function(regionName) {
@@ -75,11 +80,20 @@ module.exports = function (socket) {
   var updateStatus = function(message) {
       obj = null;
       var modulestatus = 'Operational';
-      if (message.status) {
-          for (var k in message) {
-             if (message[k]['status'] === 'DOWN') {
+      var status = message.status;
+      if (status) {
+          for (var k in status) {
+             if (status[k]['status'] === 'DOWN') {
+                modulestatus = 'Partial Outage';
+             }
+          }
+          if ( modulestatus != 'Partial Outage') {
+            for (var k in status.healthService) {
+             if (status.healthService[k] === 'DOWN' || ('DOWN' === status.healthService[k]['status'])) {
                 modulestatus = 'Partial Outage'
              }
+            }
+
           }
       } else {
         modulestatus = 'Outage'

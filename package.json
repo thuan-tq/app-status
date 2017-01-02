@@ -3,14 +3,15 @@
 	"version": "0.0.1",
 	"engines": {
 		"node": "6.9.1",
-		"npm": "3.10.10"
+		"npm": "3.10.8"
 	},
 	"dependencies": {
 		"body-parser": "^1.15.2",
 		"cookie-parser": "^1.4.3",
+		"express-session": "^1.14.1",
 		"express": "^4.14.0",
-		"socket.io": "",
-		"request": "",
+		"socket.io": "1.7.2",
+		"request": "2.79.0",
 		"colors": "^1.1.2",
 		"json-server": "^0.8.10",
 		"forever-monitor": "1.7.1",

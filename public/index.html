@@ -6,7 +6,7 @@
     <!-- force IE browsers in compatibility mode to use their most aggressive rendering engine -->
 
     <meta charset="utf-8">
-    <title>Predix Showcase Applications Status Status</title>
+    <title>Digital Demo Lounge</title>
     <meta name="description" content="Welcome to Predix Showcase Applications Status&#39;s home for real-time and historical data on system performance.">
 
     <!-- Mobile viewport optimization h5bp.com/ad -->
@@ -64,6 +64,9 @@
       <div class="masthead-container basic">
 
     <div class="masthead no-logo">
+        <h2>
+            Digital Demo Lounge
+        </h2>
         <h3>
             Predix Showcase Applications Status
         </h3>
@@ -123,10 +126,9 @@
                    <div class="child-components-container" ng-repeat="module in app.modules" ng-show=(app.show) >
                     <div class="component-inner-container color-secondary" ng-class="{'status-green': (module.status=='Operational'),'status-orange': (module.status=='Partial Outage' || module.status=='Outage') }">
                         <span class="name">
+                          <a href="{{module.endpoint}}" target="_blank">
                             {{module.name}}
-                            <span class="tooltiptext">
-                                  <a href="{{module.endpoint}}" target="_blank">health check</a>
-                              </span>
+                          </a>  
                         </span>
                         <span class="component-status">
                           {{module.status}} 

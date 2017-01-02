@@ -11,8 +11,11 @@ function AppCtrl($scope, socket, $http) {
   });
 
   socket.on('send:message', function (message) {
-    console.log("Received Message  " + JSON.stringify(message));
     updateStatus(message);
+  });
+
+  socket.on('send:system', function (data) {
+    console.log("Received Sys Message  " + data);
   });
 
   $scope.monitors = [];
@@ -26,14 +29,7 @@ function AppCtrl($scope, socket, $http) {
     function(res) {
       $scope.monitors = [];});
 
- 
-
-
-  $scope.messages = [];
-
   $scope.overallStatus = "All Applications Operational";
-
-  
 
   $scope.toggleGroup = function(regionName) {
       $scope.monitors.forEach(function(region) {
@@ -41,12 +37,37 @@ function AppCtrl($scope, socket, $http) {
                region.show = !region.show;
             }
       }); 
-     
   }
 
  $scope.toggleApp = function(app) {
                app.show = !app.show;
-     
+  }
+
+  var updateOverallStatus = function() {
+      var pOutageCount = 0;
+      var outageCount = 0;
+      var operationalCount = 0;
+      $scope.monitors.forEach(function(region) {
+          if (region.status === 'Operational') {
+            operationalCount++;
+          } else if (region.status === 'Partial Outage') {
+            pOutageCount++;
+          } else if (region.status === 'Outage') {
+            outageCount++;
+          }
+      });
+
+      if (pOutageCount > 0 || outageCount > 0) {
+          if (pOutageCount > 0) {
+            $scope.overallStatus = 'Application Partial Outage';
+          }  else if (operationalCount > 0){
+            $scope.overallStatus = 'Application Partial Outage';
+          } else {
+            $scope.overallStatus = 'Application Partial Outage';
+          }
+      } else {
+          $scope.overallStatus = "All Applications Operational";
+      }
   }
 
   var updateRegionStatus = function(regionName) {
@@ -123,5 +144,7 @@ function AppCtrl($scope, socket, $http) {
               updateRegionStatus(region.name);
           } 
       });
+
+      updateOverallStatus();
   }
 }
