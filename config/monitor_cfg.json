@@ -22,7 +22,7 @@
 				},
 				{
 					"name": "wfm-incidents-handler",
-					"endpoint": "https://predix-wfm-incidents-handler-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
+					"endpoint": "https://predix-wfm-incidents-handler-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
 					"status": "Operational"
 				},
 				{
@@ -39,8 +39,62 @@
 					"name": "wfm-timeseries-forwarder",
 					"endpoint": "https://predix-wfm-timeseries-forwarder-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
 					"status": "Operational"
-				}]
+				},
+				{
+					"name": "wfm-ui",
+					"endpoint": "https://predix-wfm-ui-das-wfmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				}
+			]
 			},
+
+			{
+				"name": "FM",
+				"status": "Operational",
+				"uri": "https://predix-fm-ui-das-fmprod.run.aws-usw02-pr.ice.predix.io",
+				"modules": [{
+					"name": "fm-datainsert",
+					"endpoint": "https://predix-fm-datainsert-das-fmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				}, 
+				{
+					"name": "fm-dataquery",
+					"endpoint": "https://predix-fm-dataquery-das-fmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "fm-gateway",
+					"endpoint": "https://predix-fm-gateway-das-fmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "fm-timeseries",
+					"endpoint": "https://predix-fm-timeseries-forwarder-das-fmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "fm-timeseries-gateway",
+					"endpoint": "https://predix-fm-timeseries-gateway-das-fmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "fm-timeseries-handler",
+					"endpoint": "https://predix-fm-timeseries-handler-das-fmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "fm-truck-simulator",
+					"endpoint": "https://predix-fm-truck-simulator-das-fmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "fm-ui",
+					"endpoint": "https://predix-fm-ui-das-fmprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				}
+			]
+			},
+
 			{
 				"name": "Intelipump",
 				"status": "Operational",
@@ -49,7 +103,34 @@
 					"name": "intelipump-backend-api",
 					"endpoint": "https://intelipump-backend-api-das-prod.run.aws-usw02-pr.ice.predix.io/health",
 					"status": "Operational"
-				}]
+				},
+				{
+					"name": "intelipump-ui",
+					"endpoint": "https://intelipump-ui-das-prod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				}
+			]
+			},
+			{
+				"name": "ISK",
+				"status": "Operational",
+				"uri": "https://predix-isk-ui-das-iskprod.run.aws-usw02-pr.ice.predix.io",
+				"modules": [{
+					"name": "isk-gateway",
+					"endpoint": "https://predix-isk-gateway-das-iskprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "isk-datahandler",
+					"endpoint": "https://predix-isk-datahandler-das-iskprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "isk-ui",
+					"endpoint": "https://predix-isk-ui-das-iskprod.run.aws-usw02-pr.ice.predix.io/health",
+					"status": "Operational"
+				}
+			]
 			}	
 		]
 },
@@ -59,7 +140,7 @@
 		"applications": [{
 				"name": "WFM",
 				"status": "Operational",
-				"uri":"https://predix-wfm-ui-ddl-wfmprod.run.asv-pr.ice.predix.io",
+				"uri":"https://wfm-ddl-prod.run.asv-pr-pub.ice.predix.io",
 				"modules": [{
 					"name": "wfm-incident-detector",
 					"endpoint": "https://predix-wfm-incident-detector-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
@@ -94,15 +175,58 @@
 					"name": "wfm-timeseries-forwarder",
 					"endpoint": "https://predix-wfm-timeseries-forwarder-ddl-wfmprod.run.asv-pr.ice.predix.io/health",
 					"status": "Operational"
+				},
+				{
+					"name": "wfm-ui",
+					"endpoint": "https://wfm-ddl-prod.run.asv-pr-pub.ice.predix.io/health",
+					"status": "Operational"
 				}]
 			},
 			{
 				"name": "Intelipump",
 				"status": "Operational",
 				"uri": "https://intel-ddl-prod.run.asv-pr-pub.ice.predix.io",
-				"modules": [{
+				"modules": [
+					{
 					"name": "intelipump-backend-api",
 					"endpoint": "https://intelipump-backend-api-ddl-intelprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "intelipump-ui",
+					"endpoint": "https://intel-ddl-prod.run.asv-pr-pub.ice.predix.io/health",
+					"status": "Operational"
+				}
+				]
+			},
+			{
+				"name": "ISK",
+				"status": "Operational",
+				"uri": "https://isk-ddl-prod.run.asv-pr-pub.ice.predix.io",
+				"modules": [{
+					"name": "isk-gateway",
+					"endpoint": "https://predix-isk-gateway-ddl-iskprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "isk-datahandler",
+					"endpoint": "https://predix-isk-datahandler-ddl-iskprod.run.asv-pr.ice.predix.io/health",
+					"status": "Operational"
+				},
+				{
+					"name": "isk-ui",
+					"endpoint": "https://isk-ddl-prod.run.asv-pr-pub.ice.predix.io/health",
+					"status": "Operational"
+				}
+			]
+			},
+				{
+				"name": "DDL Portal",
+				"status": "Operational",
+				"uri": "https://ddl-portal-dev.run.asv-pr.ice.predix.io",
+				"modules": [{
+					"name": "ddl-portal",
+					"endpoint": "https://ddl-portal-dev.run.asv-pr.ice.predix.io/health",
 					"status": "Operational"
 				}]
 			}	
