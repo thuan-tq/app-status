@@ -105,9 +105,9 @@
                 <!-- children components -->
                 <div class="child-components-container is-group" ng-repeat="app in region.applications" ng-show=(region.show) >
                     
-                    <div class="component-inner-container color-secondary" ng-class="{'status-green': (app.status=='Operational'),'status-orange': (app.status=='Partial Outage' || app.status=='Outage') }" ng-click="toggleApp(app)">
+                    <div class="component-inner-container color-secondary" ng-class="{'status-green': (app.status=='Operational'),'status-orange': (app.status=='Partial Outage' || app.status=='Outage') }" >
                         
-                        <span class="fa group-parent-indicator font-small" ng-class="{'fa-minus-square-o': (app.show), 'fa-plus-square-o': !(app.show)}"></span>
+                        <span class="fa group-parent-indicator font-small" ng-class="{'fa-minus-square-o': (app.show), 'fa-plus-square-o': !(app.show)}" ng-click="toggleApp(app)"></span>
                             <span class="name">
                               {{app.name}}
                               <span class="tooltiptext">
@@ -147,7 +147,7 @@
 
       <div class="page-footer border-color font-small">
 
-        <span class="color-secondary powered-by">© 2016 General Electric</span>
+        <span class="color-secondary powered-by">© 2017 General Electric</span>
       </div>
     </div>
 
