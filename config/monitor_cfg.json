@@ -101,7 +101,7 @@
 				"uri": "https://intelipump-ui-das-prod.run.aws-usw02-pr.ice.predix.io",
 				"modules": [{
 					"name": "intelipump-backend-api",
-					"endpoint": "https://intelipump-backend-api-das-prod.run.aws-usw02-pr.ice.predix.io/health",
+					"endpoint": "https://intelipump-backend-api-das-intelprod.run.aws-usw02-pr.ice.predix.io/health",
 					"status": "Operational"
 				},
 				{

@@ -10,6 +10,7 @@ socket.emit('send:system', "connected");
 
 var doHealthCheck = function() {
 	var monitorscfg = require('./config/monitor_cfg')
+	_log.info("Start health check....");
 	monitorscfg.forEach(function(region) {
 		region.applications.forEach(function(app) {
 				app.modules.forEach(function(module) {
