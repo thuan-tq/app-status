@@ -1,4 +1,4 @@
-# Predix Showcase Applications Status
+# Applications Status
 
 An Application for monitoring Predix Showcase Applications in Demo Lounge.
 
